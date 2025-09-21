@@ -14,7 +14,7 @@ function News() {
       setLoading(true);
       setError(null);
 
-      const response = await fetch("http://localhost:4000/api/gemini/content", {
+      const response = await fetch("/api/gemini/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "headlines" }),
@@ -40,7 +40,7 @@ function News() {
 
     setSummaryLoading(true);
     try {
-      const response = await fetch("http://localhost:4000/api/gemini/content", {
+      const response = await fetch("/api/gemini/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "summary", headline }),
