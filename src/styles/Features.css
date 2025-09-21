@@ -1,0 +1,87 @@
+.features-section {
+  max-width: 1120px;
+  margin: 4rem auto 6rem;
+  padding: 0 6rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #2e7d32;
+}
+
+.features-section h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 3rem;
+  color: #1b5e20;
+}
+
+.cards-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  flex: 1 1 22%;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(46, 125, 50, 0.15);
+  padding: 2.5rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #204020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  text-align: center;
+  position: relative;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(46, 125, 50, 0.3);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: white;
+  padding: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+/* Gradient backgrounds for each card */
+.card-1 .feature-icon {
+  background: linear-gradient(135deg, #a8e063, #56ab2f); /* green gradient */
+}
+
+.card-2 .feature-icon {
+  background: linear-gradient(135deg, #f7971e, #ffd200); /* orange-yellow gradient */
+}
+
+.card-3 .feature-icon {
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* purple-blue gradient */
+}
+
+.card-4 .feature-icon {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b); /* pink-red gradient */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .feature-card {
+    flex: 1 1 45%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .feature-card {
+    flex: 1 1 100%;
+  }
+}

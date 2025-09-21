@@ -1,0 +1,96 @@
+.navbar {
+  position: fixed; /* Floating effect */
+  top: 20px;       /* Small offset from top */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0.15); /* translucent */
+  backdrop-filter: blur(12px); /* blurry background */
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px; /* smooth curved edges */
+  box-shadow: 0 8px 32px 0 rgba(46, 125, 50, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  z-index: 1000;
+  border: 1px solid rgba(46, 125, 50, 0.3);
+  transition: background-color 0.3s ease;
+}
+
+/* Optional: On small screens, reduce margin from top */
+@media (max-width: 768px) {
+  .navbar {
+    top: 10px;
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #2e7d32; /* dark green */
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  color: #2e7d32;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #66bb6a; /* lighter green on hover */
+}
+
+.auth-buttons button {
+  margin-left: 1rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.auth-buttons button:first-child {
+  background-color: transparent;
+  color: #2e7d32;
+  border: 1.5px solid #2e7d32;
+}
+
+.auth-buttons button:first-child:hover {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.auth-buttons .get-started {
+  background-color: #2e7d32;
+  color: #fff;
+}
+
+.auth-buttons .get-started:hover {
+  background-color: #1b5e20;
+}
+
+/* Hide nav links on mobiles if you add mobile menu */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .auth-buttons button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
