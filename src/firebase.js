@@ -3,13 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDfueyJezm1MkQj6A2awKhB_q6fSI0K0PA",
-  authDomain: "ecoeducate-882f9.firebaseapp.com",
-  projectId: "ecoeducate-882f9",
-  storageBucket: "ecoeducate-882f9.firebasestorage.app",
-  messagingSenderId: "193997053051",
-  appId: "1:193997053051:web:1e2b00e93d4f64ccce96de",
-  measurementId: "G-JPDZTRHWFN"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase
