@@ -80,6 +80,11 @@ h1 {
   font-size: 1rem;
 }
 
+.secondary-btn a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .secondary-btn:hover {
   background-color: #2e7d32;
   color: white;

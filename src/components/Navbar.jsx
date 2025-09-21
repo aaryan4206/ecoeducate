@@ -14,7 +14,7 @@ const Navbar = () => {
       </ul>
       <div className='auth-buttons'>
         <button className="login-btn" onClick={() => navigate("/login")}>Login</button>
-        <button className="get-started" onClick={() => navigate("/get-started")}>Get Started</button>
+        <button className="get-started">Get Started</button>
       </div>
     </nav>
   )

@@ -1,8 +1,10 @@
 import React from "react";
 import "./../styles/Hero.css";
 import heroImage from "./../assets/hero.jpg"; // Replace with actual image path
+import { useNavigate } from "react-router-dom";
 
 function HeroSection() {
+  const navigate = useNavigate();
   return (
     <section id="home" className="hero-section">
       <div className="hero-text">
@@ -15,8 +17,8 @@ function HeroSection() {
           complete real-world challenges, and compete with schools nationwide to create a sustainable future.
         </p>
         <div className="hero-buttons">
-          <button className="primary-btn">Start Learning</button>
-          <button className="secondary-btn">View Demo</button>
+          <button className="primary-btn" onClick={() => navigate("/get-started")}>Get Started</button>
+          <a href='#about'><button className="secondary-btn">Know More</button></a>
         </div>
         <div className="stats">
           <div>

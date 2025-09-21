@@ -29,6 +29,7 @@ function App() {
             <Footer />
           </>
         } />
+        <Route path='/about' element={<About/>}/>
         <Route path="/login" element={<Login />} />
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/dashboard" element={
