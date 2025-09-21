@@ -8,32 +8,29 @@ function News() {
   const [error, setError] = useState(null);
   const [summaries, setSummaries] = useState({});
   const [summaryLoading, setSummaryLoading] = useState(false);
-  const BACKEND_URL = "https://ecoeducate.vercel.app";
   const fetchHeadlines = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      const response = await fetch("${BACKEND_URL}/api/gemini/content", {
+      const response = await fetch("https://ecoeducate.vercel.app/api/gemini/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "headlines" }),
       });
-      
+      const text = await response.text();
       // attempt JSON parsing only if response is JSON
+      let data;
       try {
-        const data = JSON.parse(text);
-        setArticles(data);
+        data = JSON.parse(text);
       } catch {
-        setError("Invalid response from API");
+        throw new Error(`Invalid JSON response from server: ${text}`);
       }
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to fetch headlines.");
+        throw new Error(data.error || `Server responded with status ${response.status}`);
       }
 
-      const data = await response.json();
       setArticles(data);
     } catch (error) {
       console.error("Error fetching headlines:", error);
@@ -48,7 +45,7 @@ function News() {
 
     setSummaryLoading(true);
     try {
-      const response = await fetch("${BACKEND_URL}/api/gemini/content", {
+      const response = await fetch("https://ecoeducate.vercel.app/api/gemini/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "summary", headline }),
