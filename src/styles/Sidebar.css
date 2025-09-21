@@ -1,60 +1,205 @@
 .sidebar {
   position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 200px;
-  height: calc(100vh - 40px);
-  background-color: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(12px);
-  border-radius: 22px;
-  box-shadow: 0 8px 32px 0 rgba(46, 125, 50, 0.22);
-  border: 1.5px solid rgba(46, 125, 50, 0.23);
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #c8efd7 0%, #8ad6a3 45%, #4caf50 100%);
+  color: #274c28;
+  width: 250px;
+  transition: all 0.35s cubic-bezier(.77,0,.18,1);
+  box-shadow: 3px 0 24px 3px rgba(60,96,83,0.18);
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  z-index: 1000;
+  overflow: hidden;
+}
+.sidebar.collapsed {
+  width: 78px;
+}
+
+.sidebar-header {
+  display: flex;
   justify-content: space-between;
-  padding: 2.2rem 1.5rem 1.5rem 1.5rem;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  z-index: 100;
+  align-items: center;
+  padding: 1.3rem 1.2rem 1.3rem 1.2rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+.eco-logo {
+  color: #388e3c;
+  font-size: 3rem;
+  background: #fff7e6;
+  border-radius: 50%;
+  padding: 0.33rem;
+  box-shadow: 0 0 10px #c8efd7;
+}
+.logo-text {
+  margin: 0;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #106829;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  color: #43a047;
+  font-size: 1.35rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.toggle-btn:hover {
+  color: #0a3c17;
 }
 
 .sidebar-links {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem 0;
+  margin: 0 0 0 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
+  gap: 1.3rem;
+  align-items: stretch;
+  justify-content: center;
 }
 
-.sidebar-links li a {
-  color: #2e7d32;
-  font-weight: 700;
-  text-decoration: none;
-  font-size: 1.18rem;
-  transition: color 0.3s;
-}
-
-.sidebar-links li a.active,
-.sidebar-links li a:hover {
-  color: #388e3c;
-}
-
-.logout-button {
-  background: transparent;
-  border: 2px solid #2e7d32;
-  border-radius: 22px;
-  padding: 0.75rem 1.5rem;
-  color: #2e7d32;
-  font-weight: 700;
-  font-size: 1.1rem;
-  cursor: pointer;
-  margin-bottom: 0.5rem;
-  transition: background 0.3s, color 0.3s;
+.sidebar-links li {
   width: 100%;
 }
 
+.sidebar-links li a {
+  display: flex;
+  align-items: center;
+  gap: 1.05rem;
+  padding: 0.93rem 1.4rem 0.93rem 1.5rem;
+  border-radius: 15px;
+  font-weight: 600;
+  color: #20492e;
+  text-decoration: none;
+  background: transparent;
+  transition: background 0.18s, color 0.18s, box-shadow 0.17s, transform 0.17s;
+  font-size: 1.13rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 0 0 rgba(140,224,91,0);
+}
+.sidebar-links li a:hover,
+.sidebar-links li a.active {
+  background: linear-gradient(90deg, #e3fceb 60%, #c7dfff 100%);
+  color: #067627;
+  box-shadow: 0 2px 9px #b6dfcb3a;
+  transform: scale(1.023);
+}
+
+.icon-bg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: 2.33em;
+  height: 2.33em;
+  font-size: 1.28em;
+  box-shadow: 0 2px 8px #b6dfcb28;
+  background: #a5d6a7;
+  color: #274c28;
+  transition: background 0.28s;
+}
+
+.logout-button {
+  margin: 2rem 1.1rem 1.7rem 1.1rem;
+  padding: 0.92rem 1.2rem;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #fff3f3 60%, #eda3a3 100%);
+  color: #b71c1c;
+  font-size: 1.1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.92rem;
+  cursor: pointer;
+  justify-content: center;
+  box-shadow: 0 2px 9px #e3b4b428;
+  transition: background 0.29s, color 0.29s, transform 0.19s;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 22px;
+}
 .logout-button:hover {
-  background: #2e7d32;
+  background: linear-gradient(90deg, #fcdcdc 80%, #ff8394 100%);
   color: #fff;
+  transform: scale(1.05);
+}
+
+/* header: hide brand in collapsed via JSX; keep layout aligned */
+.sidebar-header { display:flex; align-items:center; justify-content:space-between; padding:1.2rem; }
+.logo-block { display:flex; align-items:center; gap:.7rem; }
+.eco-logo { font-size:2rem; border-radius:50%; background:#fff7e6; color:#2e7d32; padding:.3rem; }
+.eco-text { font-weight:800; letter-spacing:1.5px; color:#106829; font-size: 1.2rem; }
+.eco-text a { text-decoration: none; color: inherit; }
+.toggle-btn { background:transparent; border:none; color:#146c35; font-size:1.35rem; cursor:pointer; }
+
+/* links unchanged from previous, ensure icons keep size */
+.icon-bg { width:2.2em; height:2.2em; font-size:1.15em; display:flex; align-items:center; justify-content:center; border-radius:50%; }
+
+/* logout fixed size in both states */
+.logout-button {
+  position:absolute; left:0; right:0; bottom:22px;
+  margin:1.2rem; padding:.9rem 1rem;
+  border:none; border-radius:18px;
+  display:flex; align-items:center; justify-content:center; gap:.7rem;
+  background:linear-gradient(90deg,#ffecec 60%,#ffb6b6 100%);
+  color:#b71c1c; font-weight:700; font-size:1rem;
+}
+.logout-icon { font-size:1.15rem; }
+
+/* prevent tiny logout in collapsed: never scale buttons by width */
+.sidebar.collapsed .logout-button,
+.sidebar.collapsed .sidebar-links li a {
+  transform:none !important;
+  padding:.9rem 1rem;
+}
+
+/* hide label text when collapsed */
+.sidebar.collapsed .sidebar-links li a span:not(.icon-bg),
+.sidebar.collapsed .logout-button span { display:none; }
+
+/* keep toggle visible when collapsed (no logo) */
+.sidebar.collapsed .logo-block { display:none; }
+
+
+/* Responsive for tablets and mobile */
+@media (max-width: 870px) {
+  .sidebar {
+    width: 82px;
+  }
+  .sidebar.open {
+    width: 228px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 0;
+    min-width: 0;
+    box-shadow: none;
+  }
+  .sidebar.open {
+    width: 99vw;
+    box-shadow: 3px 0 24px 3px rgba(60,96,83,0.18);
+  }
+}
+
+.sidebar.collapsed .logo-text,
+.sidebar.collapsed .sidebar-links li a span:not(.icon-bg),
+.sidebar.collapsed .logout-button span {
+  display: none;
 }

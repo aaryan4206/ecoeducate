@@ -172,3 +172,9 @@ h1 {
     margin-top: 2rem;
   }
 }
+
+@media (max-width: 900px) {
+  .hero-image {
+    display: none;
+  }
+}

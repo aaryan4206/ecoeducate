@@ -1,3 +1,12 @@
 html {
   scroll-behavior: smooth;
 }
+
+:root {
+  --primary-green: #31913A;
+  --light-yellow: #FFF3BF;
+  --sky-blue: #4BB6EB;
+  --dark-green: #145214;
+  --text-dark: #3A4D39;
+  --text-light: #999;
+}
