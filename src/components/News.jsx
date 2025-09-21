@@ -19,10 +19,7 @@ function News() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "headlines" }),
       });
-
-      const text = await response.text();
-      console.log("Raw response:", text);
-
+      
       // attempt JSON parsing only if response is JSON
       try {
         const data = JSON.parse(text);
