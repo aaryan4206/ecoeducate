@@ -20,6 +20,17 @@ function News() {
         body: JSON.stringify({ type: "headlines" }),
       });
 
+      const text = await response.text();
+      console.log("Raw response:", text);
+
+      // attempt JSON parsing only if response is JSON
+      try {
+        const data = JSON.parse(text);
+        setArticles(data);
+      } catch {
+        setError("Invalid response from API");
+      }
+
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.error || "Failed to fetch headlines.");
@@ -70,7 +81,7 @@ function News() {
   if (loading) {
     return <LoadingSpinner />;
   }
-  
+
   if (error) {
     return <div className="error-message">Error: {error}</div>;
   }
