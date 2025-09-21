@@ -55,7 +55,7 @@ function Dashboard() {
   useEffect(() => {
     async function fetchHeadlines() {
       try {
-        const res = await fetch("http://localhost:4000/api/gemini/content", {
+        const res = await fetch("https://ecoeducate.vercel.app/api/gemini/content", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ type: "headlines" }),
