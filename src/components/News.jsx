@@ -8,13 +8,13 @@ function News() {
   const [error, setError] = useState(null);
   const [summaries, setSummaries] = useState({});
   const [summaryLoading, setSummaryLoading] = useState(false);
-
+  const BACKEND_URL = "https://ecoeducate.vercel.app";
   const fetchHeadlines = async () => {
     try {
       setLoading(true);
       setError(null);
 
-      const response = await fetch("/api/gemini/content", {
+      const response = await fetch("${BACKEND_URL}/api/gemini/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "headlines" }),
@@ -51,7 +51,7 @@ function News() {
 
     setSummaryLoading(true);
     try {
-      const response = await fetch("/api/gemini/content", {
+      const response = await fetch("${BACKEND_URL}/api/gemini/content", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ type: "summary", headline }),
